@@ -8,7 +8,6 @@ ENV BASH_ENV "/root/.bash_env"
 COPY .bash_env /root/.bash_env
 
 SHELL ["/bin/bash", "-c"]
-ENTRYPOINT [ "/bin/bash", "entrypoint.sh"]
 
 RUN apt install -y postgresql
 ENV PGUSER postgres
@@ -28,5 +27,3 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash
 RUN apt install -y nodejs 
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash 
 RUN yarn config set cache-folder /cache
-
-COPY entrypoint.sh /root
